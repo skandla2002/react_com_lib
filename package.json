@@ -5,6 +5,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.17",
+    "@babel/plugin-proposal-class-properties": "^7.12.13",
     "@babel/preset-env": "^7.12.17",
     "@babel/preset-react": "^7.12.13",
     "@storybook/addon-actions": "^6.1.18",
@@ -26,7 +27,7 @@
   },
   "name": "react_com_lib",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "repository": "https://github.com/skandla2002/react_com_lib.git",
   "bugs": "https://github.com/skandla2002/react_com_lib/issues",
   "author": "Andy Pak <skandla2002@gmail.com>",
@@ -38,7 +39,10 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
-  "browserlist": "last 2versions, ie9",
+  "browserslist": [
+    "last 2 versions",
+    "ie 11"
+  ],
   "peerDependencies": {
     "react": "^16.0.0"
   }
