@@ -1,15 +1,19 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Content from './Content';
 
 
-export default class Contents extends React.Component {
+export default class Contents extends Component {
 
     rootEl = React.createRef();
 
     contentInst = null;
 
     componentDidMount(){
-        this.contentInst = new Content();
+        this.contentInst = new Content(this.rootEl.current, {
+            ...this.props
+        });
+
+        this.bindEventHandlers(this.props);
     }
 
     componentWillUnmount(){
@@ -39,7 +43,7 @@ export default class Contents extends React.Component {
             .forEach((key) => {
                 const eventName = key[2].toLowerCase() + key.slice(3);
 
-                if(prevProps && prevProps[key] !== props[key]){
+                if (prevProps && prevProps[key] !== props[key]) {
                     this.contentInst.off(eventName);
                 }
                 this.contentInst.on(eventName, props[key]);
@@ -52,7 +56,7 @@ export default class Contents extends React.Component {
             .forEach((key) => {
                 const eventName = key[2].toLowerCase + key.slice(3);
                 this.contentInst.off(eventName);
-            })
+            });
     }
 
     isEventHandlerKeys(key) {
