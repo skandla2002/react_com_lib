@@ -64,6 +64,7 @@ export default class Contents extends Component {
     }
 
     render(){
-        return <div ref={this.rootEl} />;
+        return <Content />;
+        // return <div ref={this.rootEl} />;
     }
 }
